@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Заявка на участь в ІТ-фестівалі</h1>
+    <p>Заповніть форму, щоб зареєструватися. Поля із зірочкою обов'язкові.</p>
+    <fieldset>
+        <legend>Дані учасника</legend>
+        <p>
+            <label for="name">Ім'я*:</label>
+            <input type="text" id="name" name="name">
+        </p>
+        <p>
+            <label for="mail">Пошта*:</label>
+            <input type="email" id="mail" name="mail">
+        </p>
+        <p>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone">
+        </p>
+        <p>
+            <label for="pass">Пароль*:</label>
+            <input type="password" id="pass" name="pass">
+        </p>
+        <p>
+            <label for="birth">Дата народження:</label>
+            <input type="date" id="birth" name="birth">
+        </p>
+        <p>
+            <label for="age">Кількість квитків:</label>
+            <input type="number" id="tickets" name="tickets" min="0" step="1">
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>Участь у фестивалі</legend>
+        <p>Ваша роль:</p>
+        <p>
+            <input type="radio" id="role_speaker" name="role" value="speaker">
+            <label for="role_speaker">Спікер</label>
+        </p>
+        <p>
+            <input type="radio" id="role_listener" name="role" value="listener">
+            <label for="role_listener">Слухач</label>
+        </p>
+        <p>
+            <input type="radio" id="role_volunteer" name="role" value="volunteer">
+            <label for="role_volunteer">Волонтер</label>
+        </p>
+        <p>
+            <label for="course">Оберіть курс:</label>
+            <select id="course" name="course">
+                <optgroup label="Програмування">
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                </optgroup>
+                <optgroup label="Дизайн">
+                    <option value="ui">UI/UX дизайн</option>
+                    <option value="design">Графічний дизайн</option>
+                </optgroup>
+                <optgroup label="Тестування">
+                    <option value="qatests" selected>QA тестування</option>
+                    <option value="autotests">Автотести</option>
+                </optgroup>
+            </select>
+        </p>
+        <p>Що вас цікавить:</p>
+        <p>
+            <input type="checkbox" id="interest_hackathon" name="interest" value="hackathon">
+            <label for="interest_hackathon">Хакатони</label>
+        </p>
+        <p>
+            <input type="checkbox" id="interest_workshop" name="interest" value="workshop">
+            <label for="interest_workshop">Майстер-класи</label>
+        </p>
+        <p>
+            <input type="checkbox" id="interest_networking" name="interest" value="networking">
+            <label for="interest_networking">Нетворкінг</label>
+        </p>
+        <p>
+            <input type="checkbox" id="interest_startup" name="interest" value="startup">
+            <label for="interest_startup">Конкурс стартапів</label>
+        </p>
+        <p>
+            <label for="country">Місто (почніть вводити):</label>
+            <input type="text" id="city" name="city" list="cities">
+            <datalist id="cities">
+                <option value="Одеса">
+                <option value="Київ">
+                <option value="Львів">
+                <option value="Дніпро">
+                <option value="Харків">
+            </datalist>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>Додатково</legend>
+        
+    </fieldset>
+</body>
+</html>

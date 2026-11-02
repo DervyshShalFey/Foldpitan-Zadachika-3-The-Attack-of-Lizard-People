@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Усі теги форм</title>
+</head>
+<body>
+
+    <!--
+        ФАЙЛ-ДОВІДНИК: УСІ ТЕГИ ФОРМ
+        Як читати: кожен тег має коментар над собою.
+        Відкрийте файл у редакторі, щоб бачити коментарі,
+        і в браузері, щоб бачити результат.
+
+        Теги форм, які тут розібрані:
+        form, input, label, button, select, option, optgroup,
+        datalist, textarea, fieldset, legend, output, progress, meter.
+    -->
+
+    <h1>Усі теги форм</h1>
+
+
+    <!--
+        FORM: контейнер для всієї форми.
+        Усе, що має піти на сервер одним пакетом, лежить усередині нього.
+        Закриваючий тег </form> обов'язковий.
+        Форма всередині іншої форми не працює.
+
+        Атрибути form:
+        action  - адреса, куди надіслати дані
+        method  - як надіслати: get (дані в адресі) або post (дані в тілі запиту)
+        enctype - як кодувати дані; для файлів потрібен multipart/form-data
+        target  - де показати відповідь: _self (ця вкладка) або _blank (нова)
+        novalidate   - вимикає перевірку полів браузером
+        autocomplete - on або off, підказки браузера
+    -->
+    <form action="/register" method="post" enctype="multipart/form-data">
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 1. INPUT: ТЕКСТОВІ ПОЛЯ                               -->
+        <!-- ============================================================ -->
+        <h2>1. Текстові поля</h2>
+
+        <!--
+            INPUT: універсальне поле введення.
+            Одиночний тег, закриваючого тегу немає.
+            Який саме елемент з'явиться, визначає атрибут type.
+
+            LABEL: підпис до поля. Закриваючий тег обов'язковий.
+            Зв'язок підпису з полем: значення for у label
+            дорівнює значенню id у поля (до літери).
+            Після цього клік по підпису ставить курсор у поле.
+
+            name - ім'я поля. Під ним дані підуть на сервер.
+            Без name поле нікуди не надсилається.
+            id   - унікальний ідентифікатор. Двох однакових id на сторінці бути не може.
+        -->
+
+        <!-- type="text": звичайний рядок. Значення за замовчуванням. -->
+        <p>
+            <label for="nick">Нік:</label>
+            <input type="text" id="nick" name="nick">
+        </p>
+
+        <!-- type="password": замість символів показує крапки. Ховає введене від сторонніх очей, але не шифрує. -->
+        <p>
+            <label for="pass">Пароль:</label>
+            <input type="password" id="pass" name="pass">
+        </p>
+
+        <!-- type="email": пошта. Браузер перевіряє наявність @ під час надсилання. На телефоні з'являється клавіатура з @. -->
+        <p>
+            <label for="mail">Пошта:</label>
+            <input type="email" id="mail" name="mail">
+        </p>
+
+        <!-- type="number": тільки числа. Літери ввести не можна. min та max задають межі, step задає крок. -->
+        <p>
+            <label for="age">Вік:</label>
+            <input type="number" id="age" name="age" min="10" max="99" step="1">
+        </p>
+
+        <!-- type="tel": телефон. На телефоні відкриває цифрову клавіатуру. На комп'ютері нічого не перевіряє. -->
+        <p>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone">
+        </p>
+
+        <!-- type="url": адреса сайту. Браузер перевіряє, що введено повну адресу з https:// -->
+        <p>
+            <label for="site">Сайт:</label>
+            <input type="url" id="site" name="site">
+        </p>
+
+        <!-- type="search": поле пошуку. Працює як text, у деяких браузерах з'являється хрестик очищення. -->
+        <p>
+            <label for="query">Пошук:</label>
+            <input type="search" id="query" name="query">
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 2. INPUT: ДАТА І ЧАС                                  -->
+        <!-- ============================================================ -->
+        <h2>2. Дата і час</h2>
+
+        <!-- type="date": вибір дати з календаря. -->
+        <p>
+            <label for="birth">Дата народження:</label>
+            <input type="date" id="birth" name="birth">
+        </p>
+
+        <!-- type="time": вибір часу (години і хвилини). -->
+        <p>
+            <label for="time">Час:</label>
+            <input type="time" id="time" name="time">
+        </p>
+
+        <!-- type="datetime-local": дата і час разом. -->
+        <p>
+            <label for="meeting">Дата і час зустрічі:</label>
+            <input type="datetime-local" id="meeting" name="meeting">
+        </p>
+
+        <!-- type="month": вибір місяця і року. -->
+        <p>
+            <label for="month">Місяць:</label>
+            <input type="month" id="month" name="month">
+        </p>
+
+        <!-- type="week": вибір номера тижня. -->
+        <p>
+            <label for="week">Тиждень:</label>
+            <input type="week" id="week" name="week">
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 3. INPUT: ОСОБЛИВІ ПОЛЯ                               -->
+        <!-- ============================================================ -->
+        <h2>3. Особливі поля</h2>
+
+        <!-- type="color": вибір кольору. Показує квадратик, який відкриває палітру. -->
+        <p>
+            <label for="color">Улюблений колір:</label>
+            <input type="color" id="color" name="color">
+        </p>
+
+        <!-- type="range": повзунок. min та max задають межі, value задає початкове положення. -->
+        <p>
+            <label for="volume">Гучність:</label>
+            <input type="range" id="volume" name="volume" min="0" max="10" value="5">
+        </p>
+
+        <!--
+            type="file": вибір файлу з комп'ютера.
+            accept   - які файли дозволені (image/* означає будь-яка картинка)
+            multiple - дозволяє вибрати кілька файлів
+            Щоб файл справді дійшов до сервера, у form потрібні
+            method="post" і enctype="multipart/form-data".
+        -->
+        <p>
+            <label for="avatar">Аватар:</label>
+            <input type="file" id="avatar" name="avatar" accept="image/*">
+        </p>
+
+        <!--
+            type="hidden": приховане поле.
+            На сторінці його не видно, але його значення надсилається з формою.
+            Використовується для службових даних, наприклад номера замовлення.
+        -->
+        <input type="hidden" name="order_id" value="12345">
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 4. INPUT: RADIO ТА CHECKBOX                           -->
+        <!-- ============================================================ -->
+        <h2>4. Вибір варіантів</h2>
+
+        <!--
+            type="radio": перемикач "один із багатьох".
+            У всіх кнопок однієї групи ОДНАКОВЕ name, але РІЗНЕ value.
+            Саме однакове name об'єднує кнопки в групу.
+            checked - цей варіант вибраний заздалегідь.
+        -->
+        <p>Рівень складності:</p>
+        <p>
+            <input type="radio" id="level_easy" name="level" value="easy">
+            <label for="level_easy">Легкий</label>
+        </p>
+        <p>
+            <input type="radio" id="level_medium" name="level" value="medium" checked>
+            <label for="level_medium">Середній</label>
+        </p>
+        <p>
+            <input type="radio" id="level_hard" name="level" value="hard">
+            <label for="level_hard">Складний</label>
+        </p>
+
+        <!--
+            type="checkbox": галочка.
+            Кожен пункт вмикається окремо: можна обрати всі, частину або жодного.
+            У checkbox одного питання name однакове, value різне.
+            checked - пункт відмічений заздалегідь.
+        -->
+        <p>На яких пристроях граєте:</p>
+        <p>
+            <input type="checkbox" id="device_pc" name="device" value="pc" checked>
+            <label for="device_pc">Комп'ютер</label>
+        </p>
+        <p>
+            <input type="checkbox" id="device_phone" name="device" value="phone">
+            <label for="device_phone">Телефон</label>
+        </p>
+        <p>
+            <input type="checkbox" id="device_console" name="device" value="console">
+            <label for="device_console">Консоль</label>
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 5. SELECT, OPTION, OPTGROUP                           -->
+        <!-- ============================================================ -->
+        <h2>5. Випадаючий список</h2>
+
+        <!--
+            SELECT: випадаючий список. Закриваючий тег обов'язковий.
+            name пишеться у select, а не в option.
+            multiple - дозволяє вибрати кілька пунктів (Ctrl або Shift).
+            size     - скільки пунктів видно одночасно.
+
+            OPTION: один пункт списку. Закриваючий тег обов'язковий.
+            value    - що піде на сервер (якщо не вказати, піде текст пункту)
+            selected - пункт вибраний заздалегідь
+            disabled - пункт не можна вибрати
+        -->
+        <p>
+            <label for="city">Місто:</label>
+            <select id="city" name="city">
+                <option value="odesa">Одеса</option>
+                <option value="kyiv">Київ</option>
+                <option value="lviv" selected>Львів</option>
+                <option value="dnipro" disabled>Дніпро (недоступно)</option>
+            </select>
+        </p>
+
+        <!--
+            OPTGROUP: група пунктів усередині select.
+            Назва групи пишеться в атрибуті label.
+            Саму групу вибрати не можна, тільки пункт усередині неї.
+        -->
+        <p>
+            <label for="course">Оберіть курс:</label>
+            <select id="course" name="course">
+                <optgroup label="Програмування">
+                    <option value="python">Python</option>
+                    <option value="csharp">C#</option>
+                </optgroup>
+                <optgroup label="Дизайн">
+                    <option value="figma">Figma</option>
+                    <option value="photoshop">Photoshop</option>
+                </optgroup>
+            </select>
+        </p>
+
+        <!-- select з multiple і size: можна вибрати кілька пунктів, видно відразу чотири. -->
+        <p>
+            <label for="langs">Мови, які знаєте (Ctrl для кількох):</label>
+            <select id="langs" name="langs" multiple size="4">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JavaScript</option>
+                <option value="python">Python</option>
+            </select>
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 6. DATALIST                                           -->
+        <!-- ============================================================ -->
+        <h2>6. Поле з підказками</h2>
+
+        <!--
+            DATALIST: список підказок для текстового поля.
+            На відміну від select, користувач може вписати й своє значення.
+            Зв'язок: атрибут list у input дорівнює id у datalist.
+            Закриваючий тег обов'язковий.
+        -->
+        <p>
+            <label for="country">Країна (почніть вводити):</label>
+            <input type="text" id="country" name="country" list="countries">
+            <datalist id="countries">
+                <option value="Україна">
+                <option value="Польща">
+                <option value="Німеччина">
+                <option value="Чехія">
+            </datalist>
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 7. TEXTAREA                                           -->
+        <!-- ============================================================ -->
+        <h2>7. Багаторядкове поле</h2>
+
+        <!--
+            TEXTAREA: багаторядкове текстове поле.
+            Закриваючий тег </textarea> обов'язковий.
+            rows - висота в рядках, cols - ширина в символах.
+            Початковий текст пишеться МІЖ тегами.
+            Атрибута value у textarea немає.
+            Запис <textarea /> писати не можна: усе нижче потрапить усередину поля.
+        -->
+        <p>
+            <label for="about">Про себе:</label>
+        </p>
+        <p>
+            <textarea id="about" name="about" rows="5" cols="45">Привіт! Мене звати...</textarea>
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 8. FIELDSET ТА LEGEND                                 -->
+        <!-- ============================================================ -->
+        <h2>8. Група полів</h2>
+
+        <!--
+            FIELDSET: рамка навколо групи пов'язаних полів.
+            LEGEND: назва групи, пишеться першим усередині fieldset.
+            Обидва теги парні.
+            Якщо в fieldset додати атрибут disabled, усі поля всередині вимкнуться.
+        -->
+        <fieldset>
+            <legend>Контакти</legend>
+            <p>
+                <label for="contact_mail">Пошта для зв'язку:</label>
+                <input type="email" id="contact_mail" name="contact_mail">
+            </p>
+            <p>
+                <label for="contact_phone">Телефон для зв'язку:</label>
+                <input type="tel" id="contact_phone" name="contact_phone">
+            </p>
+        </fieldset>
+
+        <!-- Те саме з атрибутом disabled: усі поля всередині недоступні. -->
+        <fieldset disabled>
+            <legend>Недоступна група</legend>
+            <p>
+                <label for="closed_field">Закрите поле:</label>
+                <input type="text" id="closed_field" name="closed_field">
+            </p>
+        </fieldset>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 9. АТРИБУТИ ПОЛІВ                                     -->
+        <!-- ============================================================ -->
+        <h2>9. Атрибути полів</h2>
+
+        <!--
+            placeholder - сіра підказка всередині порожнього поля. Зникає, коли почали вводити.
+                          Це лише підказка, значенням вона не є і не надсилається.
+            value       - справжнє початкове значення. Піде на сервер, якщо його не стерли.
+            required    - поле обов'язкове: без нього форма не надішлеться.
+            minlength   - мінімальна кількість символів.
+            maxlength   - максимальна кількість символів.
+            readonly    - поле видно, але змінити не можна. Значення надсилається.
+            disabled    - поле вимкнене: сіре, змінити не можна, НЕ надсилається.
+            pattern     - шаблон, якому має відповідати значення.
+            title       - підказка, яка з'являється при наведенні мишки.
+            autofocus   - курсор одразу стає в це поле після завантаження сторінки.
+            Атрибути required, readonly, disabled, checked, selected пишуться
+            одним словом, без значення.
+        -->
+        <p>
+            <label for="user">Логін (обов'язковий, від 3 до 12 символів):</label>
+            <input type="text" id="user" name="user" placeholder="Наприклад, ivan2025" minlength="3" maxlength="12" required>
+        </p>
+        <p>
+            <label for="server">Сервер (тільки читання):</label>
+            <input type="text" id="server" name="server" value="Європа" readonly>
+        </p>
+        <p>
+            <label for="promo">Промокод (вимкнений):</label>
+            <input type="text" id="promo" name="promo" disabled>
+        </p>
+        <p>
+            <label for="code">Код із трьох латинських літер:</label>
+            <input type="text" id="code" name="code" pattern="[A-Za-z]{3}" title="Рівно три латинські літери">
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 10. OUTPUT, PROGRESS, METER                           -->
+        <!-- ============================================================ -->
+        <h2>10. Результат і шкали</h2>
+
+        <!--
+            OUTPUT: місце для результату обчислення.
+            Саме обчислення виконує скрипт (JavaScript), який ми ще не вивчали,
+            тому тут тег лише стоїть з початковим текстом.
+            for - id полів, від яких залежить результат.
+        -->
+        <p>
+            Результат: <output name="result" for="age volume">0</output>
+        </p>
+
+        <!--
+            PROGRESS: смуга виконання (наприклад, завантаження).
+            value - скільки виконано, max - скільки всього.
+            Без value смуга "невизначена" і постійно рухається.
+        -->
+        <p>
+            Завантажено 70%: <progress value="70" max="100">70%</progress>
+        </p>
+
+        <!--
+            METER: шкала значення в діапазоні (заряд, заповнення диска).
+            min, max - межі діапазону
+            low      - нижче цієї межі рівень "низький"
+            high     - вище цієї межі рівень "високий"
+            optimum  - найкраще значення
+            value    - поточне значення
+            Колір шкали браузер вибирає сам залежно від значення.
+        -->
+        <p>
+            Заряд 15%: <meter min="0" max="100" low="20" high="80" optimum="100" value="15">15%</meter>
+        </p>
+        <p>
+            Заряд 95%: <meter min="0" max="100" low="20" high="80" optimum="100" value="95">95%</meter>
+        </p>
+
+
+        <!-- ============================================================ -->
+        <!-- РОЗДІЛ 11. КНОПКИ                                            -->
+        <!-- ============================================================ -->
+        <h2>11. Кнопки</h2>
+
+        <!--
+            BUTTON: кнопка. Закриваючий тег обов'язковий.
+            Текст між тегами стає написом на кнопці.
+            type="submit" - надсилає форму
+            type="reset"  - повертає всі поля до початкових значень
+            type="button" - нічого не робить (потрібна для скриптів)
+            Якщо type не вказати, кнопка вважається submit,
+            тому тип краще писати завжди.
+            Без серверної частини кнопка submit просто перезавантажить сторінку.
+        -->
+        <p>
+            <button type="submit">Надіслати</button>
+            <button type="reset">Очистити</button>
+            <button type="button">Кнопка без дії</button>
+        </p>
+
+        <!--
+            Старий спосіб: кнопки через input.
+            Результат той самий, але напис береться з value.
+            type="submit", type="reset", type="button" - як у button.
+            type="image" - кнопка надсилання у вигляді картинки (src, alt, width, height).
+        -->
+        <p>
+            <input type="submit" value="Надіслати (input)">
+            <input type="reset" value="Очистити (input)">
+            <input type="button" value="Без дії (input)">
+        </p>
+        <p>
+            <input type="image" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='32'%3E%3Crect width='90' height='32' rx='6' fill='%230969da'/%3E%3Ctext x='45' y='21' fill='white' font-size='14' text-anchor='middle' font-family='sans-serif'%3EOK%3C/text%3E%3C/svg%3E" alt="Надіслати" width="90" height="32">
+        </p>
+
+    </form>
+
+    <!--
+        ПІДСУМОК: чотирнадцять тегів форм.
+        form, input, label, button, select, option, optgroup,
+        datalist, textarea, fieldset, legend, output, progress, meter.
+        Типи input у цьому файлі (22):
+        text, password, email, number, tel, url, search,
+        date, time, datetime-local, month, week,
+        color, range, file, hidden,
+        radio, checkbox,
+        submit, reset, button, image.
+    -->
+
+</body>
+</html>
